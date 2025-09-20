@@ -1,5 +1,7 @@
 /**  */
 
+import { shuffleArray } from "./shuffle";
+
 type ConnectionsGameData = {
     id: number,
     date: string,
@@ -34,7 +36,7 @@ const levelToColor = (level: number): ConnectionsColor => {
 const dataToResponse = (data: ConnectionsGameData): ConnectionsGameResponse => {
     return {
         id: data.id,
-        options: data.answers.flatMap((answer) => answer.members),
+        options: shuffleArray(data.answers.flatMap((answer) => answer.members)),
         answers: data.answers.map((dataAnswer) => ({
             color: levelToColor(dataAnswer.level),
             category: dataAnswer.group,
