@@ -1,7 +1,7 @@
 import { fiveLetterWords } from "@/utils/wordle";
 import { NextRequest, NextResponse } from "next/server";
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 export async function GET(_: NextRequest, { params }: { params: Promise<{ word: string }> }) {
 
